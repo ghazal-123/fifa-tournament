@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>FIFA Tournament</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+<h1 class="title">🏆 FIFA Tournament</h1>
+
+<div class="container">
+
+<div class="accordion" id="tournament">
+<div class="text-end my-3">
+  <button class=" rest-local btn  px-4" onclick="resetAll()">
+     Reset Tournament
+  </button>
+</div>
+
+<!-- GROUPS -->
+<div class="accordion-item stage">
+  <h2 class="accordion-header">
+    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#groups">
+      Group Stage
+    </button>
+  </h2>
+
+  <div id="groups" class="accordion-collapse collapse show">
+    <div class="accordion-body">
+
+<h5>Group A</h5>
+
+<div class="match">
+  Germany vs Brazil
+  <div class="score">
+    <input id="g1">
+    <span class="dash">-</span>
+    <input id="b1">
+  </div>
+</div>
+
+<div class="match">
+  France vs Spain
+  <div class="score">
+    <input id="f1">
+    <span class="dash">-</span>
+    <input id="s1">
+  </div>
+</div>
+
+<div class="match">
+  Germany vs France
+  <div class="score">
+    <input id="g2">
+    <span class="dash">-</span>
+    <input id="f2">
+  </div>
+</div>
+
+<div class="match">
+  Brazil vs Spain
+  <div class="score">
+    <input id="b2">
+    <span class="dash">-</span>
+    <input id="s2">
+  </div>
+</div>
+
+<div class="match">
+  Germany vs Spain
+  <div class="score">
+    <input id="g3">
+    <span class="dash">-</span>
+    <input id="s3">
+  </div>
+</div>
+
+<div class="match">
+  Brazil vs France
+  <div class="score">
+    <input id="b3">
+    <span class="dash">-</span>
+    <input id="f3">
+  </div>
+</div>
+
+
+
+<button class="btn btn-main" onclick="calculateGroup('A')">Show Top 2</button>
+<pre id="groupAOut"></pre>
+<h5>Group B</h5>
+
+<div class="match">
+  Argentina vs Morocco
+  <div class="score">
+    <span><input id="a1"></span> - <span><input id="p1"></span>
+  </div>
+</div>
+
+<div class="match">
+  Italy vs Netherlands
+  <div class="score">
+    <span><input id="i1"></span> - <span><input id="n1"></span>
+  </div>
+</div>
+
+<div class="match">
+  Argentina vs Italy
+  <div class="score">
+    <span><input id="a2"></span> - <span><input id="i2"></span>
+  </div>
+</div>
+
+<div class="match">
+  Morocco vs Netherlands
+  <div class="score">
+    <span><input id="p2"></span> - <span><input id="n2"></span>
+  </div>
+</div>
+
+<div class="match">
+  Argentina vs Netherlands
+  <div class="score">
+    <span><input id="a3"></span> - <span><input id="n3"></span>
+  </div>
+</div>
+
+<div class="match">
+ Morocco vs Italy
+  <div class="score">
+    <span><input id="p3"></span> - <span><input id="i3"></span>
+  </div>
+</div>
+
+<button class="btn btn-main" onclick="calculateGroup('B')">Show Top 2</button>
+<pre id="groupBOut"></pre>
+
+
+<h5>Group C</h5>
+
+<div class="match">
+  England vs Belgium
+  <div class="score">
+    <span><input id="e1"></span> - <span><input id="be1"></span>
+  </div>
+</div>
+
+<div class="match">
+  Croatia vs Denmark
+  <div class="score">
+    <span><input id="c1"></span> - <span><input id="d1"></span>
+  </div>
+</div>
+
+<div class="match">
+  England vs Croatia
+  <div class="score">
+    <span><input id="e2"></span> - <span><input id="c2"></span>
+  </div>
+</div>
+
+<div class="match">
+  Belgium vs Denmark
+  <div class="score">
+    <span><input id="be2"></span> - <span><input id="d2"></span>
+  </div>
+</div>
+
+<div class="match">
+  England vs Denmark
+  <div class="score">
+    <span><input id="e3"></span> - <span><input id="d3"></span>
+  </div>
+</div>
+
+<div class="match">
+  Belgium vs Croatia
+  <div class="score">
+    <span><input id="be3"></span> - <span><input id="c3"></span>
+  </div>
+</div>
+
+<button class="btn btn-main" onclick="calculateGroup('C')">Show Top 2</button>
+<pre id="groupCOut"></pre>
+<h5>Group D</h5>
+
+<div class="match">
+  Portugal vs Uruguay
+  <div class="score">
+    <span><input id="p4"></span> - <span><input id="u1"></span>
+  </div>
+</div>
+
+<div class="match">
+  Mexico vs USA
+  <div class="score">
+    <span><input id="m1"></span> - <span><input id="us1"></span>
+  </div>
+</div>
+
+<div class="match">
+  Portugal vs Mexico
+  <div class="score">
+    <span><input id="p5"></span> - <span><input id="m2"></span>
+  </div>
+</div>
+
+<div class="match">
+  Uruguay vs USA
+  <div class="score">
+    <span><input id="u2"></span> - <span><input id="us2"></span>
+  </div>
+</div>
+
+<div class="match">
+  Portugal vs USA
+  <div class="score">
+    <span><input id="p6"></span> - <span><input id="us3"></span>
+  </div>
+</div>
+
+<div class="match">
+  Uruguay vs Mexico
+  <div class="score">
+    <span><input id="u3"></span> - <span><input id="m3"></span>
+  </div>
+</div>
+
+<button class="btn btn-main" onclick="calculateGroup('D')">Show Top 2</button>
+<pre id="groupDOut"></pre>
+
+    </div>
+  </div>
+</div>
+
+<!-- QF -->
+<div class="accordion-item stage">
+  <h2 class="accordion-header">
+    <button class="accordion-button collapsed" id="btnQF" disabled data-bs-toggle="collapse" data-bs-target="#qf">
+      <i id="iconQF" class="bi bi-lock me-2"></i> Quarter Finals
+    </button>
+  </h2>
+
+  <div id="qf" class="accordion-collapse collapse">
+    <div class="accordion-body">
+
+<div class="match">
+  <div class="score-row">
+    <span id="qf1Teams">QF1</span>
+    <div class="score">
+      <input id="qf1a"> - <input id="qf1b">
+    </div>
+  </div>
+</div>
+
+<div class="match">
+  <div class="score-row">
+    <span id="qf2Teams">QF2</span>
+    <div class="score">
+      <input id="qf2a"> - <input id="qf2b">
+    </div>
+  </div>
+</div>
+
+<div class="match">
+  <div class="score-row">
+    <span id="qf3Teams">QF3</span>
+    <div class="score">
+      <input id="qf3a"> - <input id="qf3b">
+    </div>
+  </div>
+</div>
+
+<div class="match">
+  <div class="score-row">
+    <span id="qf4Teams">QF4</span>
+    <div class="score">
+      <input id="qf4a"> - <input id="qf4b">
+    </div>
+  </div>
+</div>
+      <button class="btn btn-main" onclick="playQF()">Play QF</button>
+
+      <pre id="qfOut"></pre>
+
+    </div>
+  </div>
+</div>
+<!-- SF -->
+<div class="accordion-item stage">
+  <h2 class="accordion-header">
+    <button class="accordion-button collapsed" id="btnSF" disabled data-bs-toggle="collapse" data-bs-target="#sf">
+     <i id="iconSF" class="bi bi-lock me-2"></i> Semi Finals
+    </button>
+  </h2>
+
+  <div id="sf" class="accordion-collapse collapse">
+    <div class="accordion-body">
+
+      <div class="match">
+        <span id="sf1Teams">SF1</span>
+
+        <div class="score">
+          <span><input id="sf1a"></span>
+          <span class="dash">-</span>
+          <span><input id="sf1b"></span>
+        </div>
+      </div>
+
+      <div class="match">
+        <span id="sf2Teams">SF2</span>
+
+        <div class="score">
+          <span><input id="sf2a"></span>
+          <span class="dash">-</span>
+          <span><input id="sf2b"></span>
+        </div>
+      </div>
+
+      <button class="btn btn-main" onclick="playSF()">Play SF</button>
+
+      <pre id="sfOut"></pre>
+
+    </div>
+  </div>
+</div>
+
+<!-- FINAL -->
+<div class="accordion-item stage">
+  <h2 class="accordion-header">
+    <button class="accordion-button collapsed" id="btnFinal" disabled data-bs-toggle="collapse" data-bs-target="#final">
+     <i id="iconFinal" class="bi bi-lock me-2"></i>  Final
+    </button>
+  </h2>
+
+  <div id="final" class="accordion-collapse collapse">
+    <div class="accordion-body">
+
+      <div class="match">
+        <span id="finalTeams" class="teams-label">Final</span>
+
+        <div class="score">
+          <span><input id="fa1"></span>
+          <span class="dash">-</span>
+          <span><input id="fa2"></span>
+        </div>
+      </div>
+
+      <button class="btn btn-main" onclick="playFinal()">Play Final</button>
+
+      <pre id="finalOut"></pre>
+
+    </div>
+  </div>
+</div></div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/main.js"></script>
+
+</body>
+</html>
